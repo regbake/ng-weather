@@ -10,11 +10,8 @@ export class FooterDisplayComponent implements OnInit {
   constructor() { }
 
   @Input('forecast') forecast: any;
+
   ngOnInit() {
   }
-
-  // date = 'June 20';
-  // tempF = '75';
-  // tempC = '20';
 
 }

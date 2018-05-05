@@ -1,4 +1,15 @@
 <div class="outer-contain">
+    <!-- search bar/form info -->
+    <div class="search">
+      <form>
+        <input type="text"/>
+        <button type="button"> Go geddem tygre </button>
+      </form>
+    </div>
+
+    <div class="beef">
+    </div>
+
     <div class="footer">
       <div *ngFor="let forecast of forecastData">
          <app-footer-display [forecast]='forecast'></app-footer-display>
