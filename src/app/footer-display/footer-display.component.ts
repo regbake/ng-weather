@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-footer-display',
@@ -9,11 +9,12 @@ export class FooterDisplayComponent implements OnInit {
 
   constructor() { }
 
+  @Input('forecast') forecast: any;
   ngOnInit() {
   }
 
-  date = 'June 20'
-  tempF = '75'
-  tempC = '20'
+  // date = 'June 20';
+  // tempF = '75';
+  // tempC = '20';
 
 }

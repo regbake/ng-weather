@@ -1,9 +1,7 @@
 <div class="outer-contain">
     <div class="footer">
-        <app-footer-display></app-footer-display>
-        <app-footer-display></app-footer-display>
-        <app-footer-display></app-footer-display>
-        <app-footer-display></app-footer-display>
-        <app-footer-display></app-footer-display>
+      <div *ngFor="let forecast of forecastData">
+         <app-footer-display [forecast]='forecast'></app-footer-display>
+      </div>
     </div>
 </div>
