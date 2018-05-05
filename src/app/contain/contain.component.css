@@ -5,6 +5,7 @@
   border-radius: 10px;
   opacity: .5;
   position: relative;
+  vertical-align: top;
 }
 
 .footer {
@@ -20,13 +21,43 @@
 
 .search {
   width: 70%;
-  height: 20%;
+  height: 16%;
   margin: 0 auto;
+  border: black solid 1px;
 }
 
 form * {
   display: block;
   margin: 0 auto;
+}
+
+form input {
+  width: 80%;
+}
+
+.beef {
+  width: 80%;
+  height: 50%;
+  margin: 0 auto;
+  vertical-align: top;
+  position: relative
+}
+
+.beef h1 {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: -5%;
+  left: 15%;
+  font-size: 13em;
+}
+
+.beef div {
+  height: 100%;
+  width: 45%;
+  position: absolute;
+  left: 62%;
+  top: 5%;
 }
 
 

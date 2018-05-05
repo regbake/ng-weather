@@ -12,6 +12,11 @@ export class ContainComponent implements OnInit {
   ngOnInit() {
   }
 
+  temp = 75;
+  description = 'Clear Skies';
+  humidity = 52;
+
+
   forecastData: Array<any> = [{
     date: 'June 20',
     tempF: '75',
