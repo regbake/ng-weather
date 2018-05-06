@@ -23,6 +23,7 @@ h1, h2, h3 {
   border-bottom-right-radius: 10px;
 }
 
+/* form */
 .search {
   width: 80%;
   height: 14%;
@@ -38,6 +39,8 @@ form * {
 
 form input {
   width: 50%;
+  font-size: 2em;
+  margin-left: 12%;
 }
 
 .search-bar {
@@ -48,16 +51,27 @@ form input {
 }
 
 .search-bar * {
-  font-size: 2em;
   float: left;
   background: transparent;
   border: none;
+}
+
+.search-bar button {
+  font-size: 1.5em;
+  top: 9px;
+}
+
+#search-button {
+  top: 8px;
+  position: absolute;
+  padding-right: 10px;
 }
 
 #cancel {
   position: absolute;
   margin-left: 74%;
 }
+/* form */
 
 .beef {
   width: 80%;
