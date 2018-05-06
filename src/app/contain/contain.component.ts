@@ -44,11 +44,32 @@ export class ContainComponent implements OnInit {
   }];
 
   handleSubmit(){
+    //submit city
     console.log('you submitted', this.searchVal);
   };
 
   handleInput(event){
+    //bind search data
     this.searchVal = event.target.value;
   };
 
+  bombSquad(){
+    //clear search
+    this.searchVal = '';
+  };
+
+  getCurrent(city){
+    // return axios.get('http://api.openweathermap.org/data/2.5/weather?q='+ city +'&APPID=7034220ad174adad926edf83b429bdd5');
+  };
+
+  callForecast(city){
+    // return axios.get('http://api.openweathermap.org/data/2.5/forecast?q='+ city +'&APPID=7034220ad174adad926edf83b429bdd5');
+  };
+
+  FutureDayFunction(month, day, icon, temp){
+    // this.month = month;
+    // this.day = day;
+    // this.icon = icon;
+    // this.temp = temp;
+  };
 }
