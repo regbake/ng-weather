@@ -1,3 +1,7 @@
+h1, h2, h3 {
+  color: white;
+}
+
 .outer-contain {
   width: 600px;
   height: 400px;
@@ -20,19 +24,39 @@
 }
 
 .search {
-  width: 70%;
-  height: 16%;
+  width: 80%;
+  height: 14%;
   margin: 0 auto;
-  border: black solid 1px;
+  position: relative;
 }
 
 form * {
   display: block;
   margin: 0 auto;
+  color: white;
 }
 
 form input {
+  width: 50%;
+}
+
+.search-bar {
   width: 80%;
+  height: 50px;
+  /* height: 100%; */
+  border-bottom: solid 1px black;
+}
+
+.search-bar * {
+  font-size: 2em;
+  float: left;
+  background: transparent;
+  border: none;
+}
+
+#cancel {
+  position: absolute;
+  margin-left: 74%;
 }
 
 .beef {
@@ -48,7 +72,7 @@ form input {
   margin: 0;
   position: absolute;
   top: -5%;
-  left: 15%;
+  left: 2%;
   font-size: 13em;
 }
 

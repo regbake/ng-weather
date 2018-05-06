@@ -15,7 +15,7 @@ export class ContainComponent implements OnInit {
   temp = 75;
   description = 'Clear Skies';
   humidity = 52;
-
+  searchVal = "Seattle"
 
   forecastData: Array<any> = [{
     date: 'June 20',
@@ -29,8 +29,8 @@ export class ContainComponent implements OnInit {
   },
   {
     date: 'June 22',
-    tempF: '55',
-    tempC: '120'
+    tempF: '120',
+    tempC: '55'
   },
   {
     date: 'June 23',
@@ -42,5 +42,13 @@ export class ContainComponent implements OnInit {
     tempF: '71',
     tempC: '18'
   }];
+
+  handleSubmit(){
+    console.log('you submitted', this.searchVal);
+  };
+
+  handleInput(event){
+    this.searchVal = event.target.value;
+  };
 
 }

@@ -2,13 +2,16 @@
     <!-- search bar/form info -->
     <div class="search">
       <form>
-        <input type="text"/>
-        <button type="button"> Go geddem tygre </button>
+        <div class="search-bar">
+          <button type="button" (click)="alert('YOU CLICKED!')">|*</button>
+          <input type="text" [value]="searchVal" (input)="handleInput($event)"/>
+          <button id="cancel" type="button" (click)="handleSubmit()"> X </button>
+        </div>
       </form>
     </div>
 
     <div class="beef">
-      <h1>{{ temp }}</h1>
+      <h1>{{ temp }}°</h1>
       <div>
         <h2 class="right-info">F</h2>
         <h2 class="right-info">{{ description }}</h2>
