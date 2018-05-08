@@ -14,7 +14,7 @@ export class ContainComponent implements OnInit {
     //get current data on first load
     this.getCurrent(this.searchVal)
       .subscribe(data => {
-        this.temp = Math.floor((data.main.temp-273)*(9/5)+32)
+        this.temp = Math.floor((data.main.temp-273)*(9/5)+32);
         this.description = data.weather[0].description;
         this.humidity = data.main.humidity;
       })
@@ -37,7 +37,8 @@ export class ContainComponent implements OnInit {
               if (this.forecastDays[i] == dayString[1] || this.forecastDays[i] == dayString){
                 matchFlag = true;
                 //get the weather data from the first matching date
-
+                this.forecastData[i].date = dayString;
+                this.forecastData[i].tempF = Math.floor((list[k].main.temp-273)*(9/5)+32);
                 console.log('there was a match')
               }
             }
