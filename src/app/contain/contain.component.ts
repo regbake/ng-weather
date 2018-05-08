@@ -17,7 +17,6 @@ export class ContainComponent implements OnInit {
         this.temp = Math.floor((data.main.temp-273)*(9/5)+32)
         this.description = data.weather[0].description;
         this.humidity = data.main.humidity;
-
       })
   }
 
@@ -55,6 +54,14 @@ export class ContainComponent implements OnInit {
   handleSubmit(){
     //submit city
     console.log('you submitted', this.searchVal);
+
+    //call for data
+    this.getCurrent(this.searchVal)
+      .subscribe(data => {
+        this.temp = Math.floor((data.main.temp-273)*(9/5)+32)
+        this.description = data.weather[0].description;
+        this.humidity = data.main.humidity;
+      })
   };
 
   handleInput(event){
