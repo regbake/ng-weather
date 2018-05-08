@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contain',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContainComponent implements OnInit {
 
-  constructor() { }
+  constructor( private http: HttpClient ) {}
 
   ngOnInit() {
+    //get current data on first load
+    this.getCurrent(this.searchVal)
+      .subscribe(data => {
+        this.temp = Math.floor((data.main.temp-273)*(9/5)+32)
+        this.description = data.weather[0].description;
+        this.humidity = data.main.humidity;
+
+      })
   }
 
   temp = 75;
@@ -17,7 +26,7 @@ export class ContainComponent implements OnInit {
   humidity = 52;
   searchVal = "Seattle"
 
-  forecastData: Array<any> = [{
+  forecastData = [{
     date: 'June 20',
     tempF: '75',
     tempC: '23'
@@ -59,7 +68,7 @@ export class ContainComponent implements OnInit {
   };
 
   getCurrent(city){
-    // return axios.get('http://api.openweathermap.org/data/2.5/weather?q='+ city +'&APPID=7034220ad174adad926edf83b429bdd5');
+    return this.http.get('http://api.openweathermap.org/data/2.5/weather?q='+ city +'&APPID=7034220ad174adad926edf83b429bdd5')
   };
 
   callForecast(city){
