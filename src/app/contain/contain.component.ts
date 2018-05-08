@@ -18,12 +18,50 @@ export class ContainComponent implements OnInit {
         this.description = data.weather[0].description;
         this.humidity = data.main.humidity;
       })
+
+    //call forecast data
+    this.callForecast(this.searchVal)
+      .subscribe(data => {
+        const list = data.list;
+
+        //iterate over forecast days
+        for (let i=0; i<this.forecastDays.length; i++){
+          //to find the first matching forecast day
+          let matchFlag = false;
+
+          for (let k=0; k<list.length; k++){
+            //get the date in a usable form
+            const dayString = list[k].dt_txt[8] + list[k].dt_txt[9];
+
+            if (!matchFlag){
+              if (this.forecastDays[i] == dayString[1] || this.forecastDays[i] == dayString){
+                matchFlag = true;
+                //get the weather data from the first matching date
+
+                console.log('there was a match')
+              }
+            }
+
+
+            //console.log(dayString)
+
+          }
+        }
+
+        //todo: list is the forecast response, i must parse this
+        //and put it into forecastData format
+        console.log(list)
+      })
   }
 
   temp = 75;
   description = 'Clear Skies';
   humidity = 52;
   searchVal = "Seattle"
+  futureData = [];
+  today = new Date();
+  forecastDays = [this.today.getDate()+1, this.today.getDate()+2, this.today.getDate()+3, this.today.getDate()+4, this.today.getDate()+5]
+
 
   forecastData = [{
     date: 'June 20',
@@ -55,7 +93,7 @@ export class ContainComponent implements OnInit {
     //submit city
     console.log('you submitted', this.searchVal);
 
-    //call for data
+    //call for current data
     this.getCurrent(this.searchVal)
       .subscribe(data => {
         this.temp = Math.floor((data.main.temp-273)*(9/5)+32)
@@ -75,17 +113,17 @@ export class ContainComponent implements OnInit {
   };
 
   getCurrent(city){
-    return this.http.get('http://api.openweathermap.org/data/2.5/weather?q='+ city +'&APPID=7034220ad174adad926edf83b429bdd5')
+    return this.http.get('http://api.openweathermap.org/data/2.5/weather?q='+ city +'&APPID=7034220ad174adad926edf83b429bdd5');
   };
 
   callForecast(city){
-    // return axios.get('http://api.openweathermap.org/data/2.5/forecast?q='+ city +'&APPID=7034220ad174adad926edf83b429bdd5');
+    return this.http.get('http://api.openweathermap.org/data/2.5/forecast?q='+ city +'&APPID=7034220ad174adad926edf83b429bdd5');
   };
 
-  FutureDayFunction(month, day, icon, temp){
-    // this.month = month;
-    // this.day = day;
-    // this.icon = icon;
-    // this.temp = temp;
-  };
+  // FutureDayFunction(month, day, icon, temp){
+  //   this.month = month;
+  //   this.day = day;
+  //   this.icon = icon;
+  //   this.temp = temp;
+  // };
 }
